@@ -21,12 +21,12 @@ defmodule TableFormatterTest do
     columns = split_with_three_columns()
     assert length(columns) == length(@headers)
     assert List.first(columns) == ["r1 c1", "r2 c1", "r3 c1", "r4 c1"]
-    assert List.last(columns) == ["r1+++c1", "r2 c4", "r3 c4", "r4 c4"]
+    assert List.last(columns) == ["r1+++c4", "r2 c4", "r3 c4", "r4 c4"]
   end
 
   test "column_widths" do
     widths = TF.widths_of(split_with_three_columns())
-    assert widths == [5, 6, 7]
+    assert widths == [5, 5, 7]
   end
 
   test "correct format string returned" do
@@ -40,12 +40,12 @@ defmodule TableFormatterTest do
       end)
 
     assert result == """
-           c1    | c2     | c4
-           ------+--------+--------
-           r1 c1 | r1 c2  | r1+++c4
-           r2 c1 | r2 c2  | r2 c4
-           r3 c1 | r3 c2  | r3 c4
-           r4 c1 | r4++c2 | r4 c4
+           c1    | c2    | c4     
+           ------+-------+--------
+           r1 c1 | r1 c2 | r1+++c4
+           r2 c1 | r2 c2 | r2 c4  
+           r3 c1 | r3 c2 | r3 c4  
+           r4 c1 | r4 c2 | r4 c4  
            """
   end
 end

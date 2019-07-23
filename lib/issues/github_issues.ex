@@ -1,4 +1,5 @@
 defmodule Issues.GithubIssues do
+  @moduledoc false
   require Logger
 
   @user_agent [{"User-agent", "Elixir dave@pragprog.com"}]
